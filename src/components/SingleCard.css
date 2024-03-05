@@ -1,5 +1,6 @@
 .card {
     position: relative;
+    box-sizing: border-box;
 }
 
 .card img {
@@ -24,4 +25,8 @@
 .flipped .back {
     transform: rotateY(90deg);
     transition-delay: 0s;
+}
+.card .matched {
+    transition-delay: 0.4s;
+    border: 2px solid green;
 }
