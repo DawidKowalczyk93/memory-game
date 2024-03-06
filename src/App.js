@@ -1,6 +1,7 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import SingleCard from "./components/SingleCard";
+import soundMatched from "./sound/win_success_2.wav"
 
 const cardImages = [
     {"src": "/img/helmet-1.png", matched: false},
@@ -32,7 +33,10 @@ function App() {
     const handleChoice = (card) => {
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
     }
-    console.log(choiceOne, choiceTwo)
+
+    const playSoundMatched = () => {
+        new Audio(soundMatched).play()
+    }
 
     useEffect(() => {
 
@@ -48,6 +52,7 @@ function App() {
                         }
                     })
                 })
+                playSoundMatched();
                 resetTurn();
             } else {
                 setTimeout(() => resetTurn() , 1000)
